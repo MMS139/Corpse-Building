@@ -4,6 +4,8 @@ extends CharacterBody2D
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
+func _ready() -> void:
+	pass
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -23,3 +25,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, 30)
 
 	move_and_slide()
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	get_tree().reload_current_scene()
